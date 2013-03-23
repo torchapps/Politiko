@@ -17,10 +17,10 @@
 
 		<div class="row-fluid">
 			View:
-			<label>
+			<label class=" radio inline">
 				<input type="radio" ng-model="view" value="quiz">Quiz</input>
 			</label>
-			<label>
+			<label class=" radio inline">
 				<input type="radio" ng-model="view" value="table">Table</input>
 			</label>
 		</div>
@@ -29,31 +29,37 @@
 
 		  <div ng-switch-when="quiz" class="row-fluid">
 
-				<div class="span8">
+				<form class="span8 inline">
 
 					<label><input type="checkbox" ng-model="advanced">Advanced Controls</input></label>
 
-					<div ng-repeat="issue in issues">
+					<div ng-repeat="issue in issues" class="issue">
 						
-						<h1>{{issue.name}}</h1>
+						<h3>{{issue.name}}</h3>
 
-						<label><input type="radio" ng-model="issue.stance" value="for">For</input></label>
-						<label><input type="radio" ng-model="issue.stance" value="against">Against</input></label>
-						<label><input type="radio" ng-model="issue.stance" value="dc">Don't care</input></label>
+						<label class="radio inline">
+							<input type="radio" ng-model="issue.stance" value="for">For</input>
+						</label>
+						<label class="radio inline">
+							<input type="radio" ng-model="issue.stance" value="against">Against</input>
+						</label>
+						<label class="radio inline">
+							<input type="radio" ng-model="issue.stance" value="dc">No Opinion</input>
+						</label>
 
 						<div ng-show="advanced">
-							<label><input type="radio" ng-model="issue.weight" value="0">Don't care</input></label>
-							<label><input type="radio" ng-model="issue.weight" value="0.5">Unimportant</input></label>
-							<label><input type="radio" ng-model="issue.weight" value="1">Normal</input></label>
-							<label><input type="radio" ng-model="issue.weight" value="1.5">Important</input></label>
-							<label><input type="radio" ng-model="issue.weight" value="2">Very Important</input></label>
+							<label class="radio inline"><input type="radio" ng-model="issue.weight" value="0">Don't care</input></label>
+							<label class="radio inline"><input type="radio" ng-model="issue.weight" value="0.5">Unimportant</input></label>
+							<label class="radio inline"><input type="radio" ng-model="issue.weight" value="1">Normal</input></label>
+							<label class="radio inline"><input type="radio" ng-model="issue.weight" value="1.5">Important</input></label>
+							<label class="radio inline"><input type="radio" ng-model="issue.weight" value="2">Very Important</input></label>
 						</div>
 						
 						<hr/>
 
 					</div>
 
-				</div>
+				</form>
 
 				<div class="span4">
 <!-- 					<ul class="unstyled">
