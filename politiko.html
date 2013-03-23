@@ -13,55 +13,114 @@
 
 <body ng-controller="Politiko">
 
-	View:
-	<label><input type="radio" ng-model="view" value="quiz">Quiz</input></label>
-	<label><input type="radio" ng-model="view" value="table">Table</input></label>
+	<div class="container-fluid">
 
-	<div ng-switch on="view">
+		<div class="row-fluid">
+			View:
+			<label>
+				<input type="radio" ng-model="view" value="quiz">Quiz</input>
+			</label>
+			<label>
+				<input type="radio" ng-model="view" value="table">Table</input>
+			</label>
+		</div>
 
-	  <div ng-switch-when="quiz">
+		<div ng-switch on="view">
 
-			<div style="width: 40%; float: left;">
+		  <div ng-switch-when="quiz" class="row-fluid">
 
-				<label><input type="checkbox" ng-model="advanced">Advanced Controls</input></label>
+				<div class="span8">
 
-				<div ng-repeat="issue in issues">
-					
-					<h1>{{issue.name}}</h1>
+					<label><input type="checkbox" ng-model="advanced">Advanced Controls</input></label>
 
-					<label><input type="radio" ng-model="issue.stance" value="for">For</input></label>
-					<label><input type="radio" ng-model="issue.stance" value="against">Against</input></label>
-					<label><input type="radio" ng-model="issue.stance" value="dc">Don't care</input></label>
+					<div ng-repeat="issue in issues">
+						
+						<h1>{{issue.name}}</h1>
 
-					<div ng-show="advanced">
-						<label><input type="radio" ng-model="issue.weight" value="0">Don't care</input></label>
-						<label><input type="radio" ng-model="issue.weight" value="0.5">Unimportant</input></label>
-						<label><input type="radio" ng-model="issue.weight" value="1">Normal</input></label>
-						<label><input type="radio" ng-model="issue.weight" value="1.5">Important</input></label>
-						<label><input type="radio" ng-model="issue.weight" value="2">Very Important</input></label>
+						<label><input type="radio" ng-model="issue.stance" value="for">For</input></label>
+						<label><input type="radio" ng-model="issue.stance" value="against">Against</input></label>
+						<label><input type="radio" ng-model="issue.stance" value="dc">Don't care</input></label>
+
+						<div ng-show="advanced">
+							<label><input type="radio" ng-model="issue.weight" value="0">Don't care</input></label>
+							<label><input type="radio" ng-model="issue.weight" value="0.5">Unimportant</input></label>
+							<label><input type="radio" ng-model="issue.weight" value="1">Normal</input></label>
+							<label><input type="radio" ng-model="issue.weight" value="1.5">Important</input></label>
+							<label><input type="radio" ng-model="issue.weight" value="2">Very Important</input></label>
+						</div>
+						
+						<hr/>
+
 					</div>
-					
-					<hr/>
+
+				</div>
+
+				<div class="span4">
+<!-- 					<ul class="unstyled">
+						<li class="row header">
+							<div class="span4">
+								Name
+							</div>
+							<div class="span4">
+								Score
+							</div>
+							<div class="span4">
+								Breakdown
+							</div>
+						</li>
+						<li class="row" ng-repeat="cand in cands | orderBy : score : true">
+							<div class="span4">
+								{{cand}}
+							</div>
+							<div class="span4">
+								{{score(cand)}}
+							</div>
+							<div class="span4">
+								<div ng-repeat="bd in breakdown(cand)">
+									{{bd.name}} [+{{bd.weight}}]
+								</div>
+							</div>
+						</li>
+					</ul> -->
+
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Score</th>
+								<th>Breakdown</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="cand in cands | orderBy : score : true">
+								<td>{{cand}}</td>
+								<td>{{score(cand)}}</td>
+								<td>
+									<div ng-repeat="bd in breakdown(cand)">
+										{{bd.name}} [+{{bd.weight}}]
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 
 				</div>
 
 			</div>
 
-			<div style="width: 40%; float: left;">
+			<div ng-switch-when="table">
 
 				<table cellpadding="20">
 
-					<th>Name</th>
-					<th>Score</th>
-					<th>Breakdown</th>
+					<tr>
+						<th>Candidate</th>
+						<th ng-repeat="issue in issues">{{issue.name}}</th>
+					</tr>
 
-					<tr ng-repeat="cand in cands | orderBy : score : true">
-						<td>{{cand}}</td>
-						<td>{{score(cand)}}</td>
-						<td>
-							<div ng-repeat="bd in breakdown(cand)">
-								{{bd.name}} [+{{bd.weight}}]
-							</div>
+					<tr ng-repeat="cand in cands">
+						<th>{{cand}}</th>
+						<td ng-repeat="issue in issues" ng-class="getStance(cand, issue)">
+							{{getStance(cand, issue)}}
 						</td>
 					</tr>
 
@@ -70,27 +129,6 @@
 			</div>
 
 		</div>
-
-		<div ng-switch-when="table">
-
-			<table cellpadding="20">
-
-				<tr>
-					<th>Candidate</th>
-					<th ng-repeat="issue in issues">{{issue.name}}</th>
-				</tr>
-
-				<tr ng-repeat="cand in cands">
-					<th>{{cand}}</th>
-					<td ng-repeat="issue in issues" ng-class="getStance(cand, issue)">
-						{{getStance(cand, issue)}}
-					</td>
-				</tr>
-
-			</table>
-
-		</div>
-
 	</div>
 
 </body>
