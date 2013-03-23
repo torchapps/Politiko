@@ -1,0 +1,8 @@
+{
+  "name": "foundation",
+  "version": "4.0.9",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zurb/foundation"
+  }
+}
