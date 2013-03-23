@@ -13,19 +13,19 @@
 
 <body ng-controller="Politiko">
 
-	<div class="container-fluid">
-
-		<div class="row-fluid">
-			View:
+	<div class="navbar navbar-inverse navbar-static-top">
+		<div class="navbar-inner">
+			<a class="brand" href="#">Politi<span class="highlight">ko</span></a>
 			<label class=" radio inline">
-				<input type="radio" ng-model="view" value="quiz">Quiz</input>
+				<input type="radio" ng-model="view" value="quiz">Quiz
 			</label>
 			<label class=" radio inline">
-				<input type="radio" ng-model="view" value="table">Table</input>
+				<input type="radio" ng-model="view" value="table">Table
 			</label>
 		</div>
+	</div>
 
-		<hr>
+	<div class="container-fluid">
 
 		<div ng-switch on="view">
 
@@ -91,7 +91,7 @@
 						</li>
 					</ul> -->
 
-					<table class="table table-striped table-bordered">
+					<table class="table table-striped table-bordered table-condensed">
 						<thead>
 							<tr>
 								<th>Name</th>
