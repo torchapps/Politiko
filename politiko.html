@@ -7,6 +7,7 @@
 
 <script src="components/angular/angular.min.js"></script>
 <script type="text/javascript" src="components/less.js/dist/less-1.3.3.min.js"></script>
+<script src="data.js"></script>
 <script src="politiko.js"></script>
 
 </head>
@@ -30,7 +31,7 @@
 					</label> -->
 				</li>
 				<li>
-					<a href="#">About</a>
+					<a href="frohawk.ph/about">About</a>
 				</li>
 			</ul>
 		</div>
@@ -44,29 +45,14 @@
 
 				<form class="span6 inline">
 
-					<label><input type="checkbox" ng-model="advanced">Advanced Controls</input></label>
-
 					<div ng-repeat="issue in issues" class="issue">
 						
 						<h3>{{issue.name}}</h3>
-
-						<label class="radio inline">
-							<input type="radio" ng-model="issue.stance" value="for">For</input>
-						</label>
-						<label class="radio inline">
-							<input type="radio" ng-model="issue.stance" value="against">Against</input>
-						</label>
-						<label class="radio inline">
-							<input type="radio" ng-model="issue.stance" value="dc">No Opinion</input>
-						</label>
-
-						<div ng-show="advanced">
-							<label class="radio inline"><input type="radio" ng-model="issue.weight" value="0">Don't care</input></label>
-							<label class="radio inline"><input type="radio" ng-model="issue.weight" value="0.5">Unimportant</input></label>
-							<label class="radio inline"><input type="radio" ng-model="issue.weight" value="1">Normal</input></label>
-							<label class="radio inline"><input type="radio" ng-model="issue.weight" value="1.5">Important</input></label>
-							<label class="radio inline"><input type="radio" ng-model="issue.weight" value="2">Very Important</input></label>
-						</div>
+						<label class="radio inline"><input type="radio" ng-model="issue.weight" value="-2">Strongly against</input></label>
+						<label class="radio inline"><input type="radio" ng-model="issue.weight" value="-1">Against</input></label>
+						<label class="radio inline"><input type="radio" ng-model="issue.weight" value="0">Don't care / No stance</input></label>
+						<label class="radio inline"><input type="radio" ng-model="issue.weight" value="1">For</input></label>
+						<label class="radio inline"><input type="radio" ng-model="issue.weight" value="2">Strongly for</input></label>
 						
 						<hr/>
 
@@ -96,7 +82,7 @@
 							</div>
 							<div class="span4">
 								<div ng-repeat="bd in breakdown(cand)">
-									{{bd.name}} [+{{bd.weight}}]
+									{{bd.name}} [+{{absWeight(bd)}}]
 								</div>
 							</div>
 						</li>
@@ -111,12 +97,12 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="cand in cands | orderBy : score : true">
+							<tr ng-repeat="cand in cands | orderBy : candOrder" ng-mouseover="setCand(cand)">
 								<td>{{cand}}</td>
 								<td>{{score(cand)}}</td>
-								<td>
-									<div ng-repeat="bd in breakdown(cand)">
-										{{bd.name}} <span class="badge badge-inverse">{{bd.weight}}</span>
+								<td rowspan="{{breakdown(curCand).length}}" ng-show="cand == curCand">
+									<div ng-repeat="bd in breakdown(curCand)">
+										<span class="badge badge-inverse">{{absWeight(bd)}}</span> {{bd.name}}
 									</div>
 								</td>
 							</tr>
