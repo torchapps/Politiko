@@ -13,17 +13,17 @@
 
 <body ng-controller="Politiko">
 
-	<div class="navbar navbar-inverse navbar-static-top">
+	<div class="navbar navbar-inverse navbar-static-top politiko">
 		<div class="navbar-inner">
-			<a class="brand" href="#">Politi-<span class="highlight">ko</span></a>
+			<a class="brand" href="#"><strong>Politi-<span class="highlight">ko</span></strong></a>
 			<ul class="nav">
-				<li ng-class="{active: (view == 'quiz')}">
+				<li ng-class="{active: (view == 'quiz')}" class="divider">
 					<a href="#" ng-click="setView('quiz')">Quiz</a>
 					<!-- <label class="radio inline">
 						<input type="radio" ng-model="view" value="quiz">Quiz
 					</label> -->
 				</li>
-				<li ng-class="{active: (view == 'table')}">
+				<li ng-class="{active: (view == 'table')}" class="divider">
 					<a href="#" ng-click="setView('table')">Table</a>
 					<!-- <label class="radio inline">
 						<input type="radio" ng-model="view" value="table">Table
