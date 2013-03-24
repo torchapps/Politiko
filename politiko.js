@@ -65,7 +65,7 @@ app.controller('Politiko', function($scope){
 
 	/////////////////// END OF PARSING //////////////////////////
 
-	$scope.view = 'table';
+	$scope.view = 'quiz';
 	$scope.advanced = false;
 
 	$scope.score = function(cand){
