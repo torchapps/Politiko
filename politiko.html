@@ -15,13 +15,21 @@
 
 	<div class="navbar navbar-inverse navbar-static-top">
 		<div class="navbar-inner">
-			<a class="brand" href="#">Politi<span class="highlight">ko</span></a>
-			<label class=" radio inline">
-				<input type="radio" ng-model="view" value="quiz">Quiz
-			</label>
-			<label class=" radio inline">
-				<input type="radio" ng-model="view" value="table">Table
-			</label>
+			<a class="brand" href="#">Politi-<span class="highlight">ko</span></a>
+			<ul class="nav">
+				<li ng-class="{active: (view == 'quiz')}">
+					<a href="#" ng-click="setView('quiz')">Quiz</a>
+					<!-- <label class="radio inline">
+						<input type="radio" ng-model="view" value="quiz">Quiz
+					</label> -->
+				</li>
+				<li ng-class="{active: (view == 'table')}">
+					<a href="#" ng-click="setView('table')">Table</a>
+					<!-- <label class="radio inline">
+						<input type="radio" ng-model="view" value="table">Table
+					</label> -->
+				</li>
+			</ul>
 		</div>
 	</div>
 

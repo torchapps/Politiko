@@ -68,6 +68,10 @@ app.controller('Politiko', function($scope){
 	$scope.view = 'quiz';
 	$scope.advanced = false;
 
+	$scope.setView = function(view) {
+		$scope.view = view;
+	}
+
 	$scope.score = function(cand){
 		return $scope.breakdown(cand).map(function(x){ return parseFloat(x.weight); }).reduce(function(x, y){ return x + y; }, 0);
 	}
