@@ -8,12 +8,22 @@ app.controller('Politiko', function($scope){
 	$scope.cands = cands;
 	$scope.stances = ['for', 'against', 'noStand', 'NA'];
 
+	$scope.curIssue = $scope.issues[0];
+
 	/////////////////// END OF PARSING //////////////////////////
 
 	$scope.view = 'quiz';
 
 	$scope.setView = function(view) {
 		$scope.view = view;
+	}
+
+	$scope.setCurIssue = function(issue){
+		$scope.curIssue = issue;
+	}
+
+	$scope.nextIssue = function(){
+		$scope.curIssue = $scope.issues[Math.min(issues.indexOf($scope.curIssue) + 1, $scope.issues.length - 1)];
 	}
 
 	$scope.score = function(cand){

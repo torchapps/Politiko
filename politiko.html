@@ -43,50 +43,30 @@
 
 		  <div ng-switch-when="quiz" class="row-fluid">
 
-				<form class="span6 inline">
+				<form class="span3 inline">
 
-					<div ng-repeat="issue in issues" class="issue">
-						
-						<h3>{{issue.name}}</h3>
-						<label class="radio inline"><input type="radio" ng-model="issue.weight" value="-2">Strongly against</input></label>
-						<label class="radio inline"><input type="radio" ng-model="issue.weight" value="-1">Against</input></label>
-						<label class="radio inline"><input type="radio" ng-model="issue.weight" value="0">Don't care / No stance</input></label>
-						<label class="radio inline"><input type="radio" ng-model="issue.weight" value="1">For</input></label>
-						<label class="radio inline"><input type="radio" ng-model="issue.weight" value="2">Strongly for</input></label>
-						
+					<div ng-repeat="issue in issues" class="issue" ng-class="{current: issue == curIssue}">
+						<a href="#" ng-click="setCurIssue(issue)">{{issue.name}}</a>
 						<hr/>
-
 					</div>
 
 				</form>
 
 				<div class="span6">
-<!-- 					<ul class="unstyled">
-						<li class="row header">
-							<div class="span4">
-								Name
-							</div>
-							<div class="span4">
-								Score
-							</div>
-							<div class="span4">
-								Breakdown
-							</div>
-						</li>
-						<li class="row" ng-repeat="cand in cands | orderBy : score : true">
-							<div class="span4">
-								{{cand}}
-							</div>
-							<div class="span4">
-								{{score(cand)}}
-							</div>
-							<div class="span4">
-								<div ng-repeat="bd in breakdown(cand)">
-									{{bd.name}} [+{{absWeight(bd)}}]
-								</div>
-							</div>
-						</li>
-					</ul> -->
+
+					<h3>
+						{{curIssue.name}}
+					</h3>
+
+					<label class="radio inline"><input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="-2">Strongly against</input></label>
+					<label class="radio inline"><input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="-1">Against</input></label>
+					<label class="radio inline"><input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="0">Don't care / No stance</input></label>
+					<label class="radio inline"><input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="1">For</input></label>
+					<label class="radio inline"><input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="2">Strongly for</input></label>
+
+				</div>
+
+				<div class="span3">
 
 					<table class="table table-striped table-bordered table-condensed">
 						<thead>
