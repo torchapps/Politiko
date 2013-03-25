@@ -2,13 +2,13 @@
 
 <head>
 
-<!-- <link rel="stylesheet/less" type="text/css" href="stylesheets/style.less"> -->
-<link rel="stylesheet" href="stylesheets/css/style.css">
+<link rel="stylesheet/less" type="text/css" href="style.less">
+<!-- <link rel="stylesheet" href="stylesheets/css/style.css"> -->
 <link rel="stylesheet" href="stylesheets/bootstrap/bootstrap.min.css">
 <!-- <link rel="stylesheet/less" type="text/css" href="components/bootstrap/less/bootstrap.less"> -->
 <link rel="stylesheet" type="text/css" href="components/angular-ui/build/angular-ui.min.css">
 
-<!-- <script type="text/javascript" src="components/less.js/dist/less-1.3.3.min.js"></script> -->
+<script type="text/javascript" src="components/less.js/dist/less-1.3.3.min.js"></script>
 <script src="data.js"></script>
 
 <script src="components/jquery/jquery.min.js"></script>
@@ -65,7 +65,7 @@
 
 		  <div ng-switch-when="quiz" class="row-fluid">
 
-				<form class="span8 inline">
+				<form class="span9 inline">
 
 					<div ng-repeat="issue in issues" class="issue">
 						
@@ -83,10 +83,10 @@
 
 				</form>
 
-				<div class="span4">
+				<div class="span3">
 
 					<accordion close-others="false">
-						<accordion-group ng-repeat="cand in cands | orderBy : candOrder" heading="{{cand}}: {{score(cand)}}">
+						<accordion-group ng-repeat="cand in cands | orderBy : candOrder" heading="{{score(cand)}}: {{cand}}">
 							<ul class="unstyled">
 								<li ng-repeat="bd in breakdown(cand)">
 									<span class="badge badge-inverse">{{absWeight(bd)}}</span> {{bd.name}}
