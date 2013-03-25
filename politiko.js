@@ -1,4 +1,4 @@
-var app = angular.module('politiko', []);
+var app = angular.module('politiko', ['ui', 'ui.bootstrap']);
 
 app.controller('Politiko', function($scope){
 
