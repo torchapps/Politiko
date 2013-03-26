@@ -16,20 +16,28 @@
 }
 
 div.navbar.politiko {
-	a.brand {
-		padding: 16px 20px 16px;
-	}
-	.nav > li > a {
+	a.brand, .nav > li > a {
 		padding: 16px 20px 16px;
 	}
 }
 
-.divided li {
-	border-left: 1px solid #333;
+// inverse (dark)
+.navbar.navbar-inverse .divided li {
+	border-left: 1px solid rgba(0,0,0,0.1);
 	&:last-child {
-		border-right: 1px solid #333;
+		border-right: 1px solid rgba(0,0,0,0.1);
 	}
 }
+
+// standard
+
+.navbar .divided li {
+	border-left: 1px solid rgba(0,0,0,0.1);
+	&:last-child {
+		border-right: 1px solid rgba(0,0,0,0.1);
+	}
+}
+
 .stance .radio.inline {
 	vertical-align: top;
 }
@@ -37,6 +45,27 @@ div.navbar.politiko {
 .issue.current {
 	background-color: grey;
 }
+
+#donate {
+	margin: 0px;
+	button {
+	  background:none;
+	  border:none;
+	  font-size:1em;
+	  color:#999;
+	  padding: 16px 20px 16px;
+	  &:hover {
+	  	color: white; 
+	  	// color: #333;if negative
+	  }
+	}
+}
+
+div.container-fluid {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
 
 // .menu-item {
 // 	color: white;
