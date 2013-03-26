@@ -7,8 +7,10 @@
 .noStand	{ background-color: @yellow; }
 .NA				{ background-color: gray; }
 
-.issue label {
-	width: 72px;
+.niceTouchTarget() {padding: 16px 20px 16px;}
+
+body#politiko {
+	// background-color: #444;
 }
 
 .highlight {
@@ -16,8 +18,11 @@
 }
 
 div.navbar.politiko {
+	a.brand {
+		margin-left: 0px;
+	}
 	a.brand, .nav > li > a {
-		padding: 16px 20px 16px;
+		.niceTouchTarget();
 	}
 }
 
@@ -38,12 +43,34 @@ div.navbar.politiko {
 	}
 }
 
-.stance .radio.inline {
-	vertical-align: top;
+div.navbar.politiko .navbar-inner {
+	// background: none;
+	border: 0px;
+	box-shadow: none;
 }
 
-.issue.current {
-	background-color: grey;
+.issue-list {
+	margin-top: 20px;
+	li.issue {
+		height: 52px;
+		position: relative;
+		&.active {
+			border-radius: 4px;
+			background-color: #333;
+			color: #999;
+		}
+		a {
+			.niceTouchTarget();
+			position: absolute;
+		}
+		label {
+			width: 72px;
+		}
+	}
+}
+
+.stance .radio.inline {
+	vertical-align: top;
 }
 
 #donate {
@@ -61,12 +88,10 @@ div.navbar.politiko {
 	}
 }
 
-div.container-fluid {
-	padding-left: 0px;
-	padding-right: 0px;
+.quiz-panel {
+	padding: 20px;
 }
 
-
-// .menu-item {
-// 	color: white;
-// }
+.result-panel {
+	padding: 20px;
+}

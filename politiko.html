@@ -34,10 +34,11 @@
 
 </head>
 
-<body ng-controller="Politiko">
+<body ng-controller="Politiko" id="politiko">
 
 	<div class="navbar navbar-inverse navbar-static-top politiko">
 		<div class="navbar-inner">
+			<div class="container">
 			<a class="brand" href="#"><strong>Politi-<span class="highlight">ko</span></strong></a>
 			<ul class="nav">
 				<li ng-class="{active: (view == 'quiz')}">
@@ -71,23 +72,24 @@
 				</li>
 			</ul>
 		</div>
+		</div>
 	</div>
 
-	<div class="container-fluid">
+	<div class="container">
 
 		<div ng-switch on="view">
 
 		  <div ng-switch-when="quiz" class="row-fluid">
 
-				<form class="span3 inline">
+				<ul class="span3 unstyled issue-list">
 
-					<div ng-repeat="issue in issues" class="issue" ng-class="{current: issue == curIssue}">
+					<li ng-repeat="issue in issues" class="issue" ng-class="{active: issue == curIssue}">
 						<a href="#" ng-click="setCurIssue(issue)">{{issue.name}}</a>
-					</div>
+					</li>
 
-				</form>
+				</ul>
 
-				<div class="span6">
+				<div class="span6 quiz-panel">
 
 					<h1>{{curIssue.name}}</h1>
 					<h3>-- description goes here --</h3>
@@ -100,7 +102,7 @@
 
 				</div>
 
-				<div class="span3">
+				<div class="span3 result-panel">
 
 					<accordion close-others="false">
 						<accordion-group ng-repeat="cand in cands | orderBy : candOrder" heading="{{score(cand)}}: {{cand}}">
