@@ -81,7 +81,7 @@
 
 		  <div ng-switch-when="quiz" class="row-fluid">
 
-				<ul class="span4 unstyled issue-list">
+				<ul class="span3 unstyled issue-list">
 
 					<li ng-repeat="issue in issues" class="issue" ng-class="{active: issue == curIssue}">
 						<a href="#" ng-click="setCurIssue(issue)">{{issue.name}}</a>
@@ -89,25 +89,25 @@
 
 				</ul>
 
-				<div class="span8 quiz-panel">
+				<div class="span6 quiz-panel">
 
 					<h1>{{curIssue.name}}</h1>
 					<h3>-- description goes here --</h3>
 
 					<div class="choice">
-						<label class="radio inline">
+						<label class="radio">
 							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="-2">Strongly against</input>
 						</label>
-						<label class="radio inline">
+						<label class="radio">
 							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="-1">Against</input>
 						</label>
-						<label class="radio inline">
+						<label class="radio">
 							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="0">Don't care / No stance</input>
 						</label>
-						<label class="radio inline">
+						<label class="radio">
 							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="1">For</input>
 						</label>
-						<label class="radio inline">
+						<label class="radio">
 							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="2">Strongly for</input>
 						</label>
 					</div>
@@ -122,19 +122,23 @@
 							{{curCand}}
 						</accordion-group>
 					</accordion> -->
+
+				</div>
+				<div class="span3">
 					<ul class="unstyled candidate-list">
 						<li ng-repeat="cand in cands | orderBy : candOrder" class="candidate">
-							<div ng-click="isCollapsed = !isCollapsed">
-								{{cand}} <span class="score">{{score(cand)}}</span>
+							<div class="candidate-summary" ng-click="isCollapsed = !isCollapsed">
+								<h4>{{cand}} <div class="score">{{score(cand)}}</div></h4>
 							</div>
-							<ul class="unstyled breakdown" collapse="isCollapsed">
-								<li ng-repeat="bd in breakdown(cand)">
-									<span class="badge badge-inverse">{{absWeight(bd)}}</span> {{bd.name}}
-								</li>
-							</ul>
+							<div collapse="isCollapsed">
+								<ul class="unstyled breakdown">
+									<li ng-repeat="bd in breakdown(cand)">
+										<span class="badge badge-inverse">{{absWeight(bd)}}</span> {{bd.name}}
+									</li>
+								</ul>
+							</div>
 						</li>
 					</ul>
-
 				</div>
 
 			</div>
