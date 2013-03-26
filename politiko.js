@@ -7,7 +7,7 @@ app.controller('Politiko', function($scope){
 	$scope.issues = issues;
 	$scope.cands = cands;
 	$scope.stances = ['for', 'against', 'noStand', 'NA'];
-
+	$scope.isCollapsed = true;
 	$scope.curIssue = $scope.issues[0];
 
 	/////////////////// END OF PARSING //////////////////////////

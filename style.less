@@ -56,12 +56,17 @@ div.navbar.politiko .navbar-inner {
 		position: relative;
 		&.active {
 			border-radius: 4px;
-			background-color: #333;
-			color: #999;
+			background-color: rgba(0,0,0,0.1);
 		}
 		a {
 			.niceTouchTarget();
 			position: absolute;
+			color: #333;
+			box-sizing: border-box;
+			width: 100%;
+			&:hover {
+				background-color: rgba(0,0,0,0.05);
+			}
 		}
 		label {
 			width: 72px;
@@ -94,4 +99,22 @@ div.navbar.politiko .navbar-inner {
 
 .result-panel {
 	padding: 20px;
+}
+
+div.choice {
+	margin: 20px 0px;
+	label.radio.inline {
+		vertical-align: top;
+	}
+}
+
+.candidate-list {
+	li.candidate > div{
+		padding: 20px;
+		border: 1px solid black;
+		margin-bottom: -1px;
+	}
+	ul.breakdown {
+		padding-left: 20px;
+	}
 }
