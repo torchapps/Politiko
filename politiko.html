@@ -80,14 +80,8 @@
 		<div ng-switch on="view">
 
 		  <div ng-switch-when="quiz" class="row-fluid">
-
-				<ul class="span4 unstyled issue-list">
-
-					<li ng-repeat="issue in issues" class="issue" ng-class="{active: issue == curIssue}">
-						<a href="#" ng-click="setCurIssue(issue)">{{issue.name}}</a>
-					</li>
-
-				</ul>
+				
+				
 
 				<div class="span8 quiz-panel">
 
@@ -112,6 +106,20 @@
 						</label>
 					</div>
 
+					<hr />
+
+					<ul class="unstyled issue-list">
+
+						<li ng-repeat="issue in issues" class="issue" ng-class="{active: issue == curIssue}">
+							<a href="#" ng-click="setCurIssue(issue)">{{issue.name}}</a>
+						</li>
+
+					</ul>
+
+				</div>
+
+
+				<div class="span4">
 					<ul class="unstyled candidate-list">
 						<li ng-repeat="cand in cands | orderBy : candOrder" class="candidate">
 							<div class="candidate-summary" ng-click="isCollapsed = !isCollapsed">
@@ -119,6 +127,10 @@
 							</div>
 							<div collapse="isCollapsed">
 								<ul class="unstyled breakdown">
+									<li ng-hide="{{hasScore(cand)}}">
+										<!-- HEY PEPE -->
+										This candidate has yet to agree with you.
+									</li>
 									<li ng-repeat="bd in breakdown(cand)">
 										<span class="badge badge-inverse">{{absWeight(bd)}}</span> {{bd.name}}
 									</li>

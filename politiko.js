@@ -74,4 +74,9 @@ app.controller('Politiko', function($scope){
 		$scope.curCand = cand;
 	}
 
+	$scope.hasScore = function(cand){
+		if ($scope.score(cand) != 0) return true;
+		else return false;
+	}
+
 });
