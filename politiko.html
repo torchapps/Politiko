@@ -81,7 +81,7 @@
 
 		  <div ng-switch-when="quiz" class="row-fluid">
 
-				<ul class="span3 unstyled issue-list">
+				<ul class="span4 unstyled issue-list">
 
 					<li ng-repeat="issue in issues" class="issue" ng-class="{active: issue == curIssue}">
 						<a href="#" ng-click="setCurIssue(issue)">{{issue.name}}</a>
@@ -89,7 +89,7 @@
 
 				</ul>
 
-				<div class="span6 quiz-panel">
+				<div class="span8 quiz-panel">
 
 					<h1>{{curIssue.name}}</h1>
 					<h3>-- description goes here --</h3>
@@ -112,19 +112,6 @@
 						</label>
 					</div>
 
-					<!-- <accordion close-others="false">
-						<accordion-group ng-repeat="cand in cands | orderBy : candOrder" heading="{{score(cand)}}: {{cand}}">
-							<ul class="unstyled">
-								<li ng-repeat="bd in breakdown(cand)">
-									<span class="badge badge-inverse">{{absWeight(bd)}}</span> {{bd.name}}
-								</li>
-							</ul>
-							{{curCand}}
-						</accordion-group>
-					</accordion> -->
-
-				</div>
-				<div class="span3">
 					<ul class="unstyled candidate-list">
 						<li ng-repeat="cand in cands | orderBy : candOrder" class="candidate">
 							<div class="candidate-summary" ng-click="isCollapsed = !isCollapsed">
