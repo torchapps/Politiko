@@ -148,19 +148,21 @@
 
 			<div ng-switch-when="table">
 
-				<table cellpadding="20">
-
-					<tr>
-						<th>Candidate</th>
-						<th ng-repeat="issue in issues">{{issue.name}}</th>
-					</tr>
-
-					<tr ng-repeat="cand in cands">
-						<th>{{cand}}</th>
-						<td ng-repeat="issue in issues" ng-class="getStance(cand, issue)">
-							{{getStance(cand, issue)}}
-						</td>
-					</tr>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Candidate</th>
+							<th ng-repeat="issue in issues">{{issue.name}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="cand in cands">
+							<th>{{cand}}</th>
+							<td ng-repeat="issue in issues" ng-class="getStance(cand, issue)">
+								{{getStance(cand, issue)}}
+							</td>
+						</tr>
+					</tbody>
 
 				</table>
 
