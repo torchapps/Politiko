@@ -110,15 +110,11 @@ div.choice {
 
 .candidate-list {
 	margin-top: 20px;
-	border: 1px solid black;
+	border: 1px solid #ddd;
 	border-radius: 4px;
 	li.candidate {
-		border-bottom: 1px solid black;
-		// border-top: 1px solid black;
+		border-bottom: 1px solid #ddd;
 		margin-top: -1px;
-		// &:first-child{
-		// 	border-top: 0px;
-		// }
 		&:last-child{
 			border-bottom: 0px;
 		}
@@ -139,20 +135,5 @@ div.choice {
 
 .user-stance {
 	font-size: 18px;
-	.strong-against {
-		color: @red;
-	}
-	.norm-against {
-		color: spin(@red, 40);
-	}
-	.neutral {
-		color: @yellow;
-	}
-	.norm-for {
-		color: spin(@blue, -30);
-	}
-	.strong-for {
-		color: @blue;
-	}
 }
 

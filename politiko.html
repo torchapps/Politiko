@@ -81,18 +81,21 @@
 
 		  <div ng-switch-when="quiz" class="row-fluid">
 				
-				<ul class="unstyled issue-list span3">
+				<ul class="unstyled issue-list span4">
 
 					<li ng-repeat="issue in issues" class="issue" ng-class="{active: issue == curIssue}">
 						<a href="#" ng-click="setCurIssue(issue)">
 							{{issue.name}}
-							<span class="pull-right user-stance"><i ng-class="getIcon(issue.weight)"></i></span>
+							<span class="pull-right user-stance">
+								<i ng-class="getIcon(issue.weight)"></i>
+								<i ng-class="{'icon-minus': (issue.weight == -2), 'icon-plus': (issue.weight == 2)}"></i>
+							</span>
 						</a>
 					</li>
 
 				</ul>
 
-				<div class="span6 quiz-panel">
+				<div class="span8 quiz-panel">
 
 					<h1>{{curIssue.name}}</h1>
 					<h4>{{curIssue.description}}</h4>
@@ -114,11 +117,7 @@
 							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="2">Strongly for</input>
 						</label>
 					</div>
-
-				</div>
-
-
-				<div class="span3">
+					
 					<ul class="unstyled candidate-list">
 						<li ng-repeat="cand in cands | orderBy : candOrder" class="candidate">
 							<div class="candidate-summary" ng-click="isCollapsed = !isCollapsed">
@@ -131,13 +130,18 @@
 										This candidate has yet to agree with you.
 									</li>
 									<li ng-repeat="bd in breakdown(cand)">
-										<span class="badge badge-inverse">{{absWeight(bd)}}</span> {{bd.name}}
+										{{bd.name}} <span class="badge badge-inverse pull-right">{{absWeight(bd)}}</span>
 									</li>
 								</ul>
 							</div>
 						</li>
 					</ul>
 				</div>
+
+
+<!-- 				<div class="span3">
+					
+				</div> -->
 
 			</div>
 

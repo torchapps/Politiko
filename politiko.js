@@ -83,19 +83,19 @@ app.controller('Politiko', function($scope){
 		var result;
 		switch(weight) {
 			case "-2":
-				result = "icon-remove strong-against";
+				result = "icon-minus";
 				break;
 			case "-1":
-				result = "icon-remove norm-against";
+				result = "icon-minus";
 				break;
 			case "0":
-				result = "icon-minus neutral";
+				result = "icon-question-sign";
 				break;s
 			case "1":
-				result = "icon-ok norm-for";
+				result = "icon-plus";
 				break;
 			case "2":
-				result = "icon-ok strong-for";
+				result = "icon-plus";
 				break;
 			default:
 				result = "";
