@@ -4,8 +4,8 @@
 
 <link rel="stylesheet/less" type="text/css" href="style.less">
 <!-- <link rel="stylesheet" href="stylesheets/css/style.css"> -->
-<link rel="stylesheet" href="stylesheets/bootstrap/bootstrap.min.css">
-<!-- <link rel="stylesheet/less" type="text/css" href="components/bootstrap/less/bootstrap.less"> -->
+<!-- <link rel="stylesheet" href="stylesheets/bootstrap/bootstrap.min.css"> -->
+<link rel="stylesheet/less" type="text/css" href="components/bootstrap/less/bootstrap.less">
 <link rel="stylesheet" type="text/css" href="components/angular-ui/build/angular-ui.min.css">
 
 <script type="text/javascript" src="components/less.js/dist/less-1.3.3.min.js"></script>
@@ -81,12 +81,21 @@
 
 		  <div ng-switch-when="quiz" class="row-fluid">
 				
-				
+				<ul class="unstyled issue-list span3">
 
-				<div class="span8 quiz-panel">
+					<li ng-repeat="issue in issues" class="issue" ng-class="{active: issue == curIssue}">
+						<a href="#" ng-click="setCurIssue(issue)">
+							{{issue.name}}
+							<span class="pull-right user-stance"><i ng-class="getIcon(issue.weight)"></i></span>
+						</a>
+					</li>
+
+				</ul>
+
+				<div class="span6 quiz-panel">
 
 					<h1>{{curIssue.name}}</h1>
-					<h3>-- description goes here --</h3>
+					<h4>{{curIssue.description}}</h4>
 
 					<div class="choice">
 						<label class="radio">
@@ -106,20 +115,10 @@
 						</label>
 					</div>
 
-					<hr />
-
-					<ul class="unstyled issue-list">
-
-						<li ng-repeat="issue in issues" class="issue" ng-class="{active: issue == curIssue}">
-							<a href="#" ng-click="setCurIssue(issue)">{{issue.name}}</a>
-						</li>
-
-					</ul>
-
 				</div>
 
 
-				<div class="span4">
+				<div class="span3">
 					<ul class="unstyled candidate-list">
 						<li ng-repeat="cand in cands | orderBy : candOrder" class="candidate">
 							<div class="candidate-summary" ng-click="isCollapsed = !isCollapsed">

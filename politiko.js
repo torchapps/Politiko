@@ -79,4 +79,29 @@ app.controller('Politiko', function($scope){
 		else return false;
 	}
 
+	$scope.getIcon = function(weight){
+		var result;
+		switch(weight) {
+			case "-2":
+				result = "icon-remove strong-against";
+				break;
+			case "-1":
+				result = "icon-remove norm-against";
+				break;
+			case "0":
+				result = "icon-minus neutral";
+				break;s
+			case "1":
+				result = "icon-ok norm-for";
+				break;
+			case "2":
+				result = "icon-ok strong-for";
+				break;
+			default:
+				result = "";
+				break;
+		}
+		// console.log(result);
+		return result;
+	}
 });

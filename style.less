@@ -136,3 +136,23 @@ div.choice {
 		padding: 0px 20px 20px 20px;
 	}
 }
+
+.user-stance {
+	font-size: 18px;
+	.strong-against {
+		color: @red;
+	}
+	.norm-against {
+		color: spin(@red, 40);
+	}
+	.neutral {
+		color: @yellow;
+	}
+	.norm-for {
+		color: spin(@blue, -30);
+	}
+	.strong-for {
+		color: @blue;
+	}
+}
+
