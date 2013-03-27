@@ -80,20 +80,20 @@
 		<div ng-switch on="view">
 
 		  <div ng-switch-when="quiz" class="row-fluid">
-				
-				<ul class="unstyled issue-list span4">
+				<div class="span4">
+					<ul class="unstyled issue-list">
+						<li ng-repeat="issue in issues" class="issue" ng-class="{active: issue == curIssue}">
+							<a href="#" ng-click="setCurIssue(issue)">
+								{{issue.name}}
+								<span class="pull-right user-stance">
+									<i ng-class="getIcon(issue.weight)"></i>
+									<i ng-class="{'icon-minus': (issue.weight == -2), 'icon-plus': (issue.weight == 2)}"></i>
+								</span>
+							</a>
+						</li>
 
-					<li ng-repeat="issue in issues" class="issue" ng-class="{active: issue == curIssue}">
-						<a href="#" ng-click="setCurIssue(issue)">
-							{{issue.name}}
-							<span class="pull-right user-stance">
-								<i ng-class="getIcon(issue.weight)"></i>
-								<i ng-class="{'icon-minus': (issue.weight == -2), 'icon-plus': (issue.weight == 2)}"></i>
-							</span>
-						</a>
-					</li>
-
-				</ul>
+					</ul>
+				</div>
 
 				<div class="span8 quiz-panel">
 
@@ -102,19 +102,19 @@
 
 					<div class="choice">
 						<label class="radio">
-							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="-2">Strongly against</input>
-						</label>
-						<label class="radio">
-							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="-1">Against</input>
-						</label>
-						<label class="radio">
-							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="0">Don't care / No stance</input>
+							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="2">Strongly for</input>
 						</label>
 						<label class="radio">
 							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="1">For</input>
 						</label>
 						<label class="radio">
-							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="2">Strongly for</input>
+							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="0">Don't care / No stance</input>
+						</label>
+						<label class="radio">
+							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="-1">Against</input>
+						</label>
+						<label class="radio">
+							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="-2">Strongly against</input>
 						</label>
 					</div>
 					
@@ -130,7 +130,8 @@
 										This candidate has yet to agree with you.
 									</li>
 									<li ng-repeat="bd in breakdown(cand)">
-										{{bd.name}} <span class="badge badge-inverse pull-right">{{absWeight(bd)}}</span>
+										<span class="badge badge-inverse">{{absWeight(bd)}}</span> 
+										{{bd.name}}
 									</li>
 								</ul>
 							</div>
