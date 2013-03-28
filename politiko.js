@@ -19,7 +19,7 @@ app.controller('Politiko', function($scope){
 		});
 	}
 
-	$scope.offset = $scope.issues.length * 2; // used for offsetting negative values when sorting candidates
+	$scope.offset = $scope.issues.length * 3; // used for offsetting negative values when sorting candidates
 
 	$scope.stances = ['for', 'against', 'noStand', 'NA'];
 	$scope.isCollapsed = true;
