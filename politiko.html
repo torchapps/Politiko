@@ -133,7 +133,7 @@
 										This candidate has yet to (dis)agree with you.
 									</li>
 									<li ng-repeat="bd in cand.breakdown">
-										<span class="badge badge-inverse">{{bd.weight}}</span> 
+										<span class="badge" ng-class="{'badge-important': (bd.weight < 0), 'badge-inverse': (bd.weight >= 0)}">{{bd.weight}}</span> 
 										{{bd.name}}
 									</li>
 								</ul>
