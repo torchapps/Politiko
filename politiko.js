@@ -19,7 +19,7 @@ app.controller('Politiko', function($scope){
 		});
 	}
 
-	$scope.offset = $scope.issues.length * 3; // used for offsetting negative values when sorting candidates
+	$scope.offset = $scope.issues.length * 2 + 10; // used for offsetting negative values when sorting candidates
 
 	$scope.stances = ['for', 'against', 'noStand', 'NA'];
 	$scope.isCollapsed = true;
@@ -43,7 +43,7 @@ app.controller('Politiko', function($scope){
 
 	$scope.update = function(){
 
-		$('div#question').fadeOut(function(){
+		$('div#question').fadeOut(200, function(){
 			$scope.$apply(function(){
 
 				for(var i in $scope.cands){
@@ -68,7 +68,7 @@ app.controller('Politiko', function($scope){
 
 				$scope.curIssue = $scope.issues[Math.min(issues.indexOf($scope.curIssue) + 1, $scope.issues.length - 1)];
 
-				$('div#question').fadeIn();
+				$('div#question').fadeIn(300);
 
 			});
 		});

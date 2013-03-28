@@ -2,6 +2,7 @@
 
 <head>
 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet/less" type="text/css" href="style.less">
 <!-- <link rel="stylesheet" href="stylesheets/css/style.css"> -->
 <!-- <link rel="stylesheet" href="stylesheets/bootstrap/bootstrap.min.css"> -->
@@ -160,7 +161,7 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="cand in cands">
-							<th>{{cand}}</th>
+							<th>{{cand.name}}</th>
 							<td ng-repeat="issue in issues" ng-class="getStance(cand, issue)">
 								{{getStance(cand, issue)}}
 							</td>

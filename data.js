@@ -1,4 +1,39 @@
-var cands = ["Alcantara","Angara","Aquino","Belgica","Binay","Casino","Cayetano","Cojuangco","David","Delos Reyes","Enrile","Escudero","Estrada","Falcone","Gordon","Hagedorn","Honasan","Hontiveros","Legarda","Llasos","Maceda","Madrigal","Magsaysay J","Magsaysay M","Montano","Penson","Pimentel","Poe","Seneres","Trillanes","Villanueva","Villar","Zubiri"];
+var cands = [
+	"Alcantara, Samson",
+	"Angara, Sonny",
+	"Aquino, Bam",
+	"Belgica, Greco",
+	"Binay, Nancy",
+	"Casino, Teddy",
+	"Cayetano, Alan Peter",
+	"Cojuangco, Tingting",
+	"David, Lito",
+	"Delos Reyes, JC",
+	"Enrile, Jack",
+	"Escudero, Chiz",
+	"Estrada, JV",
+	"Falcone, Bal",
+	"Gordon, Dick",
+	"Hagedorn, Ed",
+	"Honasan, Gringo",
+	"Hontiveros, Risa",
+	"Legarda, Loren",
+	"Llasos, Marwil",
+	"Maceda, Ernie",
+	"Madrigal, Jamby",
+	"Magsaysay, Jun",
+	"Magsaysay, Mitos",
+	"Montano, Mon",
+	"Penson, Ricardo",
+	"Pimentel, Koko",
+	"Poe, Grace",
+	"Seneres, Christian",
+	"Trillanes, Antonio IV",
+	"Villanueva, Eddie",
+	"Villar, Cynthia",
+	"Zubiri, Migz"
+];
+
 var issues = [
 {
 	"name":"Total Gun Ban",
