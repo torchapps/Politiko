@@ -1,7 +1,6 @@
 var cands = ["Alcantara","Angara","Aquino","Belgica","Binay","Casino","Cayetano","Cojuangco","David","Delos Reyes","Enrile","Escudero","Estrada","Falcone","Gordon","Hagedorn","Honasan","Hontiveros","Legarda","Llasos","Maceda","Madrigal","Magsaysay J","Magsaysay M","Montano","Penson","Pimentel","Poe","Seneres","Trillanes","Villanueva","Villar","Zubiri"];
 var issues = [
 {
-	"weight":null,
 	"name":"Total Gun Ban",
 	"description":"I want there to be a total gun ban",
 	"for":[8,9,17,18,19,22,26],
@@ -10,7 +9,6 @@ var issues = [
 	"NA":[6,21],
 },
 {
-	"weight":null,
 	"name":"Same-Sex Marriage",
 	"description":"I want same-sex couples to have the option to marry",
 	"for":[10],
@@ -19,7 +17,6 @@ var issues = [
 	"NA":[6],
 },
 {
-	"weight":null,
 	"name":"Death Penalty",
 	"description":"I want the death penalty reinstated",
 	"for":[7,13,15,20,22,30],
@@ -28,7 +25,6 @@ var issues = [
 	"NA":[21],
 },
 {
-	"weight":null,
 	"name":"Divorce",
 	"description":"I want there to be divorce in this country",
 	"for":[10,14,15,17,25],
@@ -37,7 +33,6 @@ var issues = [
 	"NA":[],
 },
 {
-	"weight":null,
 	"name":"Anti-Political Dynasty",
 	"description":"I want to reduce political dynasties",
 	"for":[0,1,2,8,9,10,13,17,19,20,21,22,24,25,26,28,30,32],
@@ -46,7 +41,6 @@ var issues = [
 	"NA":[],
 },
 {
-	"weight":null,
 	"name":"Freedom of Information",
 	"description":"I want government information publicly accessible",
 	"for":[0,1,2,3,4,5,6,7,8,9,12,10,11,13,14,15,16,17,18,19,20,22,23,24,25,26,27,28,29,30,31,32],
@@ -55,7 +49,6 @@ var issues = [
 	"NA":[21],
 },
 {
-	"weight":null,
 	"name":"Anti-Cybercrime",
 	"description":"I want stricter control of electronic media",
 	"for":[1,2,4,8,12,10,11,15,16,22,23,24,26,29,30,31,32],
@@ -64,7 +57,6 @@ var issues = [
 	"NA":[21],
 },
 {
-	"weight":null,
 	"name":"Sin Tax",
 	"description":"I want vices to be taxed",
 	"for":[0,1,2,4,6,7,8,9,10,13,14,15,17,18,19,21,22,24,25,26,27,29,30,31,32],
@@ -73,7 +65,6 @@ var issues = [
 	"NA":[],
 },
 {
-	"weight":null,
 	"name":"Reproductive Health",
 	"description":"I want the state to subsidize family planning methods",
 	"for":[1,2,5,6,10,11,15,17,18,20,21,22,24,25,27,30],

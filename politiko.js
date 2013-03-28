@@ -4,8 +4,21 @@ app.controller('Politiko', function($scope){
 
 	////////////////// PARSE INPUT ///////////////////
 
-	$scope.issues = issues;
-	$scope.cands = cands;
+	$scope.issues = [];
+	for(var i in issues){
+		issues[i].weight = null;
+		$scope.issues.push(issues[i]);
+	}
+
+	$scope.cands = [];
+	for(var i in cands){
+		$scope.cands.push({
+			name: cands[i],
+			breakdown: [],
+			score: 0
+		});
+	}
+
 	$scope.stances = ['for', 'against', 'noStand', 'NA'];
 	$scope.isCollapsed = true;
 	$scope.curIssue = $scope.issues[0];
@@ -22,39 +35,40 @@ app.controller('Politiko', function($scope){
 		$scope.curIssue = issue;
 	}
 
-	$scope.nextIssue = function(){
-		$scope.curIssue = $scope.issues[Math.min(issues.indexOf($scope.curIssue) + 1, $scope.issues.length - 1)];
+	$scope.getScore = function(cand){
+		return [cand.score, cand.name];
 	}
 
-	$scope.score = function(cand){
-		return $scope.breakdown(cand).map(function(x){ return $scope.absWeight(x); }).reduce(function(x, y){ return x + y; }, 0);
-	}
+	$scope.update = function(){
 
-	$scope.candOrder = function(cand){
-		return [99 - $scope.score(cand), cand];
-	}
+		for(var i in $scope.cands){
 
-	$scope.absWeight = function(issue){
-		return Math.abs(issue.weight);
-	}
-
-	$scope.getMyStance = function(issue){
-		var w = parseInt(issue.weight);
-		if(w > 0) return 'for';
-		if(w < 0) return 'against';
-	}
-
-	$scope.breakdown = function(cand){
-		var r = [];
-		for(var i in $scope.issues){
-			var issue = $scope.issues[i];
-			var myStance = $scope.getMyStance(issue);
-			if(!issue[myStance]) continue;
-			if(issue[myStance].indexOf($scope.candId(cand)) != -1){
-				r.push(issue);
+			var cand = $scope.cands[i];
+			cand.breakdown = [];
+			var score = 0;
+			for(var i in $scope.issues){
+				var issue = $scope.issues[i];
+				var myStance = issue.weight ? issue.weight : 0;
+				var candStance = $scope.stanceMap[$scope.getStance(cand, issue)];
+				var weight = myStance * candStance;
+				if(weight){
+					cand.breakdown.push({name: issue.name, weight: weight});
+					score += weight;
+				}
 			}
+
+			cand.score = score;
+
 		}
-		return r;
+
+		$scope.curIssue = $scope.issues[Math.min(issues.indexOf($scope.curIssue) + 1, $scope.issues.length - 1)];
+
+	}
+
+	$scope.stanceMap = {
+		for: 1,
+		noStand: 0,
+		against: -1
 	}
 
 	$scope.candId = function(cand){
@@ -70,38 +84,24 @@ app.controller('Politiko', function($scope){
 		}
 	}
 
-	$scope.setCand = function(cand){
-		$scope.curCand = cand;
-	}
-
-	$scope.hasScore = function(cand){
-		if ($scope.score(cand) != 0) return true;
-		else return false;
-	}
-
 	$scope.getIcon = function(weight){
 		var result;
 		switch(weight) {
 			case "-2":
-				result = "icon-minus";
-				break;
 			case "-1":
 				result = "icon-minus";
 				break;
 			case "0":
 				result = "icon-question-sign";
-				break;s
-			case "1":
-				result = "icon-plus";
 				break;
+			case "1":
 			case "2":
 				result = "icon-plus";
 				break;
 			default:
 				result = "";
-				break;
 		}
-		// console.log(result);
 		return result;
 	}
+
 });

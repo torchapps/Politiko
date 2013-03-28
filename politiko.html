@@ -102,35 +102,34 @@
 
 					<div class="choice">
 						<label class="radio">
-							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="2">Strongly for</input>
+							<input type="radio" ng-model="curIssue.weight" ng-change="update()" value="2">Strongly for</input>
 						</label>
 						<label class="radio">
-							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="1">For</input>
+							<input type="radio" ng-model="curIssue.weight" ng-change="update()" value="1">For</input>
 						</label>
 						<label class="radio">
-							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="0">Don't care / No stance</input>
+							<input type="radio" ng-model="curIssue.weight" ng-change="update()" value="0">Don't care / No stance</input>
 						</label>
 						<label class="radio">
-							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="-1">Against</input>
+							<input type="radio" ng-model="curIssue.weight" ng-change="update()" value="-1">Against</input>
 						</label>
 						<label class="radio">
-							<input type="radio" ng-model="curIssue.weight" ng-click="nextIssue()" value="-2">Strongly against</input>
+							<input type="radio" ng-model="curIssue.weight" ng-change="update()" value="-2">Strongly against</input>
 						</label>
 					</div>
 					
 					<ul class="unstyled candidate-list">
-						<li ng-repeat="cand in cands | orderBy : candOrder" class="candidate">
+						<li ng-repeat="cand in cands | orderBy : getScore" class="candidate">
 							<div class="candidate-summary" ng-click="isCollapsed = !isCollapsed">
-								<h4>{{cand}} <div class="score">{{score(cand)}}</div></h4>
+								<h4>{{cand.name}} <div class="score">{{cand.score}}</div></h4>
 							</div>
 							<div collapse="isCollapsed">
 								<ul class="unstyled breakdown">
-									<li ng-hide="hasScore(cand)">
-										<!-- HEY PEPE -->
-										This candidate has yet to agree with you.
+									<li ng-hide="cand.breakdown.length">
+										This candidate has yet to (dis)agree with you.
 									</li>
-									<li ng-repeat="bd in breakdown(cand)">
-										<span class="badge badge-inverse">{{absWeight(bd)}}</span> 
+									<li ng-repeat="bd in cand.breakdown">
+										<span class="badge badge-inverse">{{bd.weight}}</span> 
 										{{bd.name}}
 									</li>
 								</ul>
