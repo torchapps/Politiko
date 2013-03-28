@@ -19,6 +19,8 @@ app.controller('Politiko', function($scope){
 		});
 	}
 
+	$scope.offset = $scope.issues.length * 2; // used for offsetting negative values when sorting candidates
+
 	$scope.stances = ['for', 'against', 'noStand', 'NA'];
 	$scope.isCollapsed = true;
 	$scope.curIssue = $scope.issues[0];
@@ -35,33 +37,41 @@ app.controller('Politiko', function($scope){
 		$scope.curIssue = issue;
 	}
 
-	$scope.getScore = function(cand){
-		return [cand.score, cand.name];
+	$scope.candOrder = function(cand){
+		return [$scope.offset - cand.score, cand.name];
 	}
 
 	$scope.update = function(){
 
-		for(var i in $scope.cands){
+		$('div#question').fadeOut(function(){
+			$scope.$apply(function(){
 
-			var cand = $scope.cands[i];
-			cand.breakdown = [];
-			var score = 0;
-			for(var i in $scope.issues){
-				var issue = $scope.issues[i];
-				var myStance = issue.weight ? issue.weight : 0;
-				var candStance = $scope.stanceMap[$scope.getStance(cand, issue)];
-				var weight = myStance * candStance;
-				if(weight){
-					cand.breakdown.push({name: issue.name, weight: weight});
-					score += weight;
+				for(var i in $scope.cands){
+
+					var cand = $scope.cands[i];
+					cand.breakdown = [];
+					var score = 0;
+					for(var i in $scope.issues){
+						var issue = $scope.issues[i];
+						var myStance = issue.weight ? issue.weight : 0;
+						var candStance = $scope.stanceMap[$scope.getStance(cand, issue)];
+						var weight = myStance * candStance;
+						if(weight){
+							cand.breakdown.push({name: issue.name, weight: weight});
+							score += weight;
+						}
+					}
+
+					cand.score = score;
+
 				}
-			}
 
-			cand.score = score;
+				$scope.curIssue = $scope.issues[Math.min(issues.indexOf($scope.curIssue) + 1, $scope.issues.length - 1)];
 
-		}
+				$('div#question').fadeIn();
 
-		$scope.curIssue = $scope.issues[Math.min(issues.indexOf($scope.curIssue) + 1, $scope.issues.length - 1)];
+			});
+		});
 
 	}
 
