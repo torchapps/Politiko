@@ -160,7 +160,7 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="cand in cands">
-							<th>{{cand}}</th>
+							<th>{{cand.name}}</th>
 							<td ng-repeat="issue in issues" ng-class="getStance(cand, issue)">
 								{{getStance(cand, issue)}}
 							</td>
