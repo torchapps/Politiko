@@ -81,7 +81,9 @@
 		<div ng-switch on="view">
 
 		  <div ng-switch-when="quiz" class="row-fluid">
+
 				<div class="span4">
+
 					<ul class="unstyled issue-list">
 						<li ng-repeat="issue in issues" class="issue" ng-class="{active: issue == curIssue}">
 							<a href="#" ng-click="setCurIssue(issue)">
@@ -92,14 +94,19 @@
 								</span>
 							</a>
 						</li>
-
 					</ul>
+
+					<div>
+						Disclaimer: This recommended ballot is not a final solution for voting. We strongly recommend that you still do your own research about the listed candidates. It is also possible that the stances posted here will not hold, given how some politicians change their positions (sometimes more often than is socially acceptable).
+					</div>
+					
 				</div>
 
 				<div class="span8 quiz-panel">
 
 					<div id="question">
 
+						<label><input type="checkbox" ng-model="includeDeductions.value" ng-click="update()">Include deductions</input></label>
 						<h1>{{curIssue.name}}</h1>
 						<h4>{{curIssue.description}}</h4>
 

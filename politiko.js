@@ -28,6 +28,7 @@ app.controller('Politiko', function($scope){
 	/////////////////// END OF PARSING //////////////////////////
 
 	$scope.view = 'quiz';
+	$scope.includeDeductions = {value: true};
 
 	$scope.setView = function(view) {
 		$scope.view = view;
@@ -56,10 +57,19 @@ app.controller('Politiko', function($scope){
 						var myStance = issue.weight ? issue.weight : 0;
 						var candStance = $scope.stanceMap[$scope.getStance(cand, issue)];
 						var weight = myStance * candStance;
-						if(weight){
+
+						var pushCondition = null;
+						if($scope.includeDeductions.value){
+							pushCondition = !!weight;
+						} else {
+							pushCondition = (weight > 0);
+						}
+
+						if(pushCondition){
 							cand.breakdown.push({name: issue.name, weight: weight});
 							score += weight;
 						}
+
 					}
 
 					cand.score = score;
