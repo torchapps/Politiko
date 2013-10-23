@@ -70,8 +70,8 @@ var issues = [
 {
 	"name":"Anti-Political Dynasty",
 	"description":"I want to reduce political dynasties",
-	"for":[0,1,2,8,9,10,13,17,19,20,21,22,24,25,26,28,30,32],
-	"against":[3,4,5,6,7,11,14,16],
+	"for":[0,1,2,5,8,9,10,13,17,19,20,21,22,24,25,26,28,30,32],
+	"against":[3,4,6,7,11,14,16],
 	"noStand":[12,15,18,23,27,29,31],
 	"NA":[],
 },
