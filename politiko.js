@@ -4,19 +4,33 @@ app.controller('Politiko', function($scope){
 
 	////////////////// PARSE INPUT ///////////////////
 
+	$scope.positions = [
+		{name: "President", id: "p"},
+		{name: "Vice President", id: "vp"}
+	];
+	$scope.cands = [];
 	$scope.issues = [];
-	for(var i in issues){
-		issues[i].weight = null;
-		$scope.issues.push(issues[i]);
+
+	for (var pos in data){
+		for (var cand in data[pos]){
+			for (var issue in data[pos][cand]){
+				$scope.issues.push({name: issue});
+			}
+			break;
+		}
+		break;
 	}
 
-	$scope.cands = [];
-	for(var i in cands){
-		$scope.cands.push({
-			name: cands[i],
-			breakdown: [],
-			score: 0
-		});
+	for (var pos in data){
+		for (var cand in data[pos]){
+			$scope.cands.push({
+				name: cand,
+				stances: data[pos][cand],
+				breakdown: [],
+				score: 0,
+				pos: pos
+			})
+		}
 	}
 
 	$scope.offset = $scope.issues.length * 2 + 10; // used for offsetting negative values when sorting candidates
@@ -66,7 +80,11 @@ app.controller('Politiko', function($scope){
 						}
 
 						if(pushCondition){
-							cand.breakdown.push({name: issue.name, weight: weight});
+							cand.breakdown.push({
+								name: issue.name,
+								weight: weight,
+								src: cand.stances[issue.name][1]
+							});
 							score += weight;
 						}
 
@@ -76,7 +94,7 @@ app.controller('Politiko', function($scope){
 
 				}
 
-				$scope.curIssue = $scope.issues[Math.min(issues.indexOf($scope.curIssue) + 1, $scope.issues.length - 1)];
+				$scope.curIssue = $scope.issues[Math.min($scope.issues.indexOf($scope.curIssue) + 1, $scope.issues.length - 1)];
 
 				$('div#question').fadeIn(300);
 
@@ -95,13 +113,14 @@ app.controller('Politiko', function($scope){
 		return $scope.cands.indexOf(cand);
 	}
 
+	$scope.getCands = function (pos){
+		return $scope.cands.filter(function (c){
+			return c.pos === pos.id;
+		});
+	}
+
 	$scope.getStance = function(cand, issue){
-		for(var i in $scope.stances){
-			var stance = $scope.stances[i];
-			if(issue[stance].indexOf($scope.candId(cand)) != -1){
-				return stance;
-			}
-		}
+		return cand.stances[issue.name][0];
 	}
 
 	$scope.getIcon = function(weight){

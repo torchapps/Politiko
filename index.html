@@ -149,30 +149,29 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 
 					</div>
 					
-					<ul class="unstyled candidate-list">
-						<li ng-repeat="cand in cands | orderBy : candOrder" class="candidate">
-							<div class="candidate-summary" ng-click="isCollapsed = !isCollapsed">
-								<h4>{{cand.name}} <div class="score">{{cand.score}}</div></h4>
-							</div>
-							<div collapse="isCollapsed">
-								<ul class="unstyled breakdown">
-									<li ng-hide="cand.breakdown.length">
-										This candidate has yet to (dis)agree with you.
-									</li>
-									<li ng-repeat="bd in cand.breakdown">
-										<span class="badge" ng-class="{'badge-important': (bd.weight < 0), 'badge-inverse': (bd.weight >= 0)}">{{bd.weight}}</span> 
-										{{bd.name}}
-									</li>
-								</ul>
-							</div>
-						</li>
-					</ul>
+					<div ng-repeat="pos in positions">
+						<h3>{{pos.name}}</h3>
+						<ul class="unstyled candidate-list">
+							<li ng-repeat="cand in getCands(pos) | orderBy : candOrder" class="candidate">
+								<div class="candidate-summary" ng-click="isCollapsed = !isCollapsed">
+									<h4>{{cand.name}} <div class="score">{{cand.score}}</div></h4>
+								</div>
+								<div collapse="isCollapsed">
+									<ul class="unstyled breakdown">
+										<li ng-hide="cand.breakdown.length">
+											This candidate has yet to (dis)agree with you.
+										</li>
+										<li ng-repeat="bd in cand.breakdown">
+											<span class="badge" ng-class="{'badge-important': (bd.weight < 0), 'badge-inverse': (bd.weight >= 0)}">{{bd.weight}}</span>
+											<a ng-href="{{bd.src}}">{{bd.name}}</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+
 				</div>
-
-
-<!-- 				<div class="span3">
-					
-				</div> -->
 
 			</div>
 
