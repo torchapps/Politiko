@@ -62,7 +62,6 @@ ul.issue-list {
 	overflow: hidden;
 	
 	li.issue {
-		height: 52px;
 		position: relative;
 		&.active {
 			// border-radius: 4px;
@@ -82,13 +81,16 @@ ul.issue-list {
 		}
 		a {
 			.niceTouchTarget();
-			position: absolute;
 			color: #333;
 			box-sizing: border-box;
 			width: 100%;
+      display: flex;
 			&:hover {
 				text-decoration: none;
 			}
+      .issue-name {
+        flex: 1;
+      }
 		}
 		label {
 			width: 72px;

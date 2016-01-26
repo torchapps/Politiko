@@ -106,8 +106,8 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 					<ul class="unstyled issue-list">
 						<li ng-repeat="issue in issues" class="issue" ng-class="{active: issue == curIssue}">
 							<a href="#" ng-click="setCurIssue(issue)">
-								{{issue.name}}
-								<span class="pull-right user-stance">
+								<div class="issue-name">{{issue.name}}</div>
+								<span class="user-stance">
 									<i ng-class="getIcon(issue.weight)"></i>
 									<i ng-class="{'icon-minus': (issue.weight == -2), 'icon-plus': (issue.weight == 2)}"></i>
 								</span>
