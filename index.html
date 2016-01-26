@@ -150,7 +150,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 					</div>
 					
 					<div ng-repeat="pos in positions">
-						<h3>{{pos.name}}</h3>
+						<h3 class="position-name"">{{pos.name}}</h3>
 						<ul class="unstyled candidate-list">
 							<li ng-repeat="cand in getCands(pos) | orderBy : candOrder" class="candidate">
 								<div class="candidate-summary" ng-click="isCollapsed = !isCollapsed">
