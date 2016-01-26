@@ -163,7 +163,8 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 										</li>
 										<li ng-repeat="bd in cand.breakdown">
 											<span class="badge" ng-class="{'badge-important': (bd.weight < 0), 'badge-inverse': (bd.weight >= 0)}">{{bd.weight}}</span>
-											<a ng-href="{{bd.src}}">{{bd.name}}</a>
+											<a ng-show="bd.src" ng-href="{{bd.src}}">{{bd.name}}</a>
+											<span ng-hide="bd.src">{{bd.name}}</span>
 										</li>
 									</ul>
 								</div>

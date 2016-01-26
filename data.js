@@ -53,7 +53,7 @@ var data = {
    ],
    "Support Job Contractualization": [
     "against",
-    "No link"
+    null
    ],
    "Fight for PH right over Spratlys, West Philippine Sea": [
     "for",
@@ -65,7 +65,7 @@ var data = {
    ],
    "Push Charter change": [
     "against",
-    "No link"
+    null
    ],
    "Pass Anti-Political Dynasty Bill": [
     "for",
@@ -73,11 +73,11 @@ var data = {
    ],
    "Legalize Divorce": [
     "against",
-    "No Link"
+    null
    ],
    "Bury Ferdinand Marcos' remains at the Libingan ng mga Bayani": [
     "against",
-    "No link"
+    null
    ],
    "Lower Personal Income Tax": [
     "for",
@@ -153,7 +153,7 @@ var data = {
    ],
    "Continue Conditional Cash Transfer Program": [
     "for",
-    "No link"
+    null
    ],
    "Push Charter change": [
     "for",
@@ -187,19 +187,19 @@ var data = {
   "GRINGO HONASAN": {
    "Promote Equal Rights for LGBT": [
     "against",
-    "No link"
+    null
    ],
    "Support Job Contractualization": [
     "against",
-    "No link"
+    null
    ],
    "Fight for PH right over Spratlys, West Philippine Sea": [
     "for",
-    "No link"
+    null
    ],
    "Continue Conditional Cash Transfer Program": [
     "for",
-    "No link"
+    null
    ],
    "Push Charter change": [
     "for",
@@ -207,19 +207,19 @@ var data = {
    ],
    "Pass Anti-Political Dynasty Bill": [
     "for",
-    "No link"
+    null
    ],
    "Legalize Divorce": [
     "against",
-    "No link"
+    null
    ],
    "Bury Ferdinand Marcos' remains at the Libingan ng mga Bayani": [
     "for",
-    "No link"
+    null
    ],
    "Lower Personal Income Tax": [
     "for",
-    "No link"
+    null
    ],
    "Pass Freedom of Information Bill": [
     "for",
@@ -309,7 +309,7 @@ var data = {
    ],
    "Bury Ferdinand Marcos' remains at the Libingan ng mga Bayani": [
     "against",
-    "No link"
+    null
    ],
    "Lower Personal Income Tax": [
     "for",
@@ -451,7 +451,7 @@ var data = {
    ],
    "Lower Personal Income Tax": [
     "against",
-    "No link"
+    null
    ],
    "Pass Freedom of Information Bill": [
     "for",
