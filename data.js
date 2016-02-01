@@ -418,8 +418,8 @@ var data = {
   }, 
   "MAR ROXAS": {
    "Promote Equal Rights for LGBT": [
-    "NA", 
-    "http://www.interaksyon.com/article/119951/mar-roxas-on-charter-change-i-dont-think-that-our-constitution-is-our-weakest-link"
+    "against", 
+    "http://www.gmanetwork.com/news/story/553443/news/nation/roxas-not-in-favor-of-divorce-same-sex-marriage"
    ], 
    "Support Job Contractualization": [
     "NA", 
@@ -442,8 +442,8 @@ var data = {
     "http://politics.com.ph/mar-in-disbelief-over-political-dynasties-wala-na-bang-ibang-hanapbuhay/"
    ], 
    "Legalize Divorce": [
-    "NA", 
-    "http://blog.marroxas.com/2015/09/18/speech-during-gathering-of-political-leaders/"
+    "against", 
+    "http://www.gmanetwork.com/news/story/553443/news/nation/roxas-not-in-favor-of-divorce-same-sex-marriage"
    ], 
    "Bury Ferdinand Marcos' remains at the Libingan ng mga Bayani": [
     "against", 
