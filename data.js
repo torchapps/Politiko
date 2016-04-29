@@ -450,8 +450,8 @@ var data = {
     "http://www.gmanetwork.com/news/story/542349/news/nation/still-no-libingan-ng-mga-bayani-for-late-dictator-marcos-if-roxas-wins"
    ], 
    "Lower Personal Income Tax": [
-    "noStand", 
-    "No link"
+    "against", 
+    "http://newsinfo.inquirer.net/742543/roxas-nixes-income-tax-cuts-not-now-in-political-heat"
    ], 
    "Pass Freedom of Information Bill": [
     "for", 
@@ -468,7 +468,7 @@ var data = {
     "http://www.rappler.com/nation/politics/elections-2013/9558-binay-ph-read-for-first-gay-senator"
    ], 
    "Support Job Contractualization": [
-    "for", 
+    "against", 
     "http://www.rappler.com/nation/politics/elections/2016/106001-binay-promises-uplb-students"
    ], 
    "Fight for PH right over Spratlys, West Philippine Sea": [
