@@ -1,0 +1,171 @@
+<html>
+<head>
+	<title></title>
+
+	<script type="text/javascript">
+
+	function show (id){
+
+		var s = document.getElementsByTagName('section');
+		for (var i in s){
+			if (s[i].style){
+				s[i].style.display = "none";
+			}
+		}
+
+		if (id){
+			document.getElementById(id).style.display = "block";
+		}
+
+	}
+
+	</script>
+
+	<style type="text/css">
+
+		section {
+			width: 700px;
+			margin: 0px auto;
+		}
+
+		div#hero {
+			width: 50%;
+			text-align: center;
+			margin: 0px auto;
+		}
+
+		div#hero img {
+			width: 300px;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a.disabled {
+			color: 'grey';
+		}
+
+		a.disabled:hover {
+			cursor: default;
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<div id="hero">
+		<img src="./dude.png" />
+		<h1>Dude H. McDuderson</h1>
+		<h2>
+			<a href="#">&lt;</a>
+			Incumbent Governor of Korhal
+			<a href="#" class="disabled">&gt;</a>
+		</h2>
+
+		<button onclick="show('timeline')">
+			Timeline
+		</button>
+		<button onclick="show('legislative')">
+			Legislative Summary
+		</button>
+		<button onclick="show('epal')">
+			Epal Cases
+		</button>
+		<button onclick="show('tag')">
+			Tag Affinity
+		</button>
+		
+	</div>
+
+	<section id="timeline">
+		<h3>Timeline</h3>
+		<ul>
+			<li>January 1, 2000 - Sworn in as Councilor of The Shire</li>
+			<li>February 2, 2005 - Sworn in as Brgy. Captain of The Shire</li>
+			<li>March 3, 2010 - Sworn in as Congressman of District 9</li>
+		</ul>
+	</section>
+
+	<section id="legislative">
+		<h3>Legislative Summary</h3>
+		<details>
+		  <summary>Bills Written [3]</summary>
+		  <ol>
+		  	<li>[2011] Extra Rice Bill</li>
+		  	<li>[2012] Double Rice Bill</li>
+		  	<li>[2013] Trible Rice Bill</li>
+		  </ol>
+		</details>
+		<details>
+		  <summary>Bills Sponsored [3]</summary>
+		  <ol>
+		  	<li>[2011] Extra Rice Bill</li>
+		  	<li>[2012] Double Rice Bill</li>
+		  	<li>[2013] Trible Rice Bill</li>
+		  </ol>
+		</details>
+		<details>
+		  <summary>Bills Endorsed [3]</summary>
+		  <ol>
+		  	<li>[2011] Extra Rice Bill</li>
+		  	<li>[2012] Double Rice Bill</li>
+		  	<li>[2013] Trible Rice Bill</li>
+		  </ol>
+		</details>
+		<details>
+		  <summary>Bills Voted For [3]</summary>
+		  <ol>
+		  	<li>[2011] Extra Rice Bill</li>
+		  	<li>[2012] Double Rice Bill</li>
+		  	<li>[2013] Trible Rice Bill</li>
+		  </ol>
+		</details>
+		<details>
+		  <summary>Bills Voted Against [0]</summary>
+		  <p>None.</p>
+		</details>
+	</section>
+
+	<section id="epal">
+		<h3>Epal Cases [3 total]</h3>
+		<ol>
+			<li>[Birthday Poster] in [Rivendell] reported by [user1]</li>
+			<li>[Christmas Greeting] in [Fornost] reported by [user3]</li>
+			<li>[Welcome Pope Banner] in [Bree] reported by [user7]</li>
+		</ol>
+	</section>
+
+	<section id="tag">
+		<h3>Tag Affinity</h3>
+		<table>
+			<tr>
+				<td>Education [80]</td>
+				<td><input type="range" min="-100" max="100" value="80" disabled /></td>
+			</tr>
+			<tr>
+				<td>Welfare [-20]</td>
+				<td><input type="range" min="-100" max="100" value="-20" disabled /></td>
+			</tr>
+			<tr>
+				<td>Military [30]</td>
+				<td><input type="range" min="-100" max="100" value="30" disabled /></td>
+			</tr>
+			<tr>
+				<td>Cats [60]</td>
+				<td><input type="range" min="-100" max="100" value="60" disabled /></td>
+			</tr>
+			<tr>
+				<td>Dogs [20]</td>
+				<td><input type="range" min="-100" max="100" value="20" disabled /></td>
+			</tr>
+		</table>
+	</section>
+
+	<script>
+		show();
+	</script>
+
+</body>
+</html>
